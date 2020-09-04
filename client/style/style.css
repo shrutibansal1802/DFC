@@ -1,8 +1,9 @@
 :root{
     --font-c1: #4b2354;
     --font-c2: rgb(179, 179, 179);
-    --primarybg : rgb(241, 236, 236);
-    --secbg: rgb(112, 108, 108);
+
+    --primarybg : #efe2f7;
+    --secbg: #240046;
 }
 *{
     margin: 0px;

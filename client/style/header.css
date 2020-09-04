@@ -1,11 +1,12 @@
+:root{
+    --bgcolor:#553192;
+}
 html, body{
     margin: 0%;
     box-sizing: border-box;
     overflow-x:hidden;
 
 }
-
-
 
 .btn {
     border: 0px solid white;
@@ -24,11 +25,11 @@ color: ivory;
 }
 
 .navbar{
-    background-color: indigo;
+    background-color: var(--bgcolor);
 }
 section .section-title {
     text-align: center;
-    color: indigo;
+    color: var(--bgcolor);
     margin-bottom: 50px;
     text-transform: uppercase;
 }

@@ -1,3 +1,6 @@
+:root{
+    --bgcolor:#240046;
+}
 html, body{
     margin: 0%;
     box-sizing: border-box;
@@ -5,7 +8,7 @@ html, body{
 
 }
 #footer {
-    background: indigo !important;
+    background: var(--bgcolor) !important;
 }
 #footer h5{
 	padding-left: 5px;
