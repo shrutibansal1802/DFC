@@ -1,0 +1,35 @@
+html, body{
+    margin: 0%;
+    box-sizing: border-box;
+    overflow-x:hidden;
+
+}
+
+
+
+.btn {
+    border: 0px solid white;
+    background-color: #2196F3;
+    color: white;
+    padding: 5px 7px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
+.logout{
+border: 0px;
+background-color: transparent;
+color: ivory;
+
+}
+
+.navbar{
+    background-color: indigo;
+}
+section .section-title {
+    text-align: center;
+    color: indigo;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+}
+

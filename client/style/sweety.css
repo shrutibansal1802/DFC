@@ -1,4 +1,4 @@
-html, body{
+/* html, body{
     margin: 0%;
     box-sizing: border-box;
     overflow-x:hidden;
@@ -6,76 +6,3 @@ html, body{
 }
 
 
-
-.btn {
-    border: 0px solid white;
-    background-color: #2196F3;
-    color: white;
-    padding: 5px 7px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-
-.logout{
-border: 0px;
-background-color: transparent;
-color: ivory;
-
-}
-
-.navbar{
-    background-color: indigo;
-}
-section .section-title {
-    text-align: center;
-    color: indigo;
-    margin-bottom: 50px;
-    text-transform: uppercase;
-}
-#footer {
-    background: indigo !important;
-}
-#footer h5{
-	padding-left: 5px;
-    border-left: 3px solid #eeeeee;
-    padding-bottom: 6px;
-    margin-bottom: 5px;
-    color:#ffffff;
-}
-#footer a {
-    color: #ffffff;
-    text-decoration: none !important;
-    background-color: transparent;
-    -webkit-text-decoration-skip: objects;
-}
-#footer ul.social li{
-	padding: 3px 0;
-}
-#footer ul.social li a i {
-    margin-right: 5px;
-	font-size:25px;
-	-webkit-transition: .5s all ease;
-	-moz-transition: .5s all ease;
-	transition: .5s all ease;
-}
-#footer ul.social li:hover a i {
-	font-size:30px;
-	margin-top:-10px;
-}
-#footer ul.social li a,
-#footer ul.quick-links li a{
-	color:#ffffff;
-}
-#footer ul.social li a:hover{
-	color:#eeeeee;
-}
-
-
-@media (max-width:767px){
-	#footer h5 {
-    padding-left: 0;
-    border-left: transparent;
-    padding-bottom: 0px;
-    margin-bottom: 5x;
-}
-}
