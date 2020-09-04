@@ -11,12 +11,63 @@
         $(function(){
           $("#header").load("header.html"); 
           $("#footer").load("footer.html"); 
-        });
+        })
         </script> 
 </head>
 <body>
     <div id="header"></div>
-    <h1>hello</h1>
+    <div class="row">
+        <div class="col-sm-6 text-cont" >quote</div>
+        <div class="col-sm-6 form-cont" >
+            <div class="wrap-login ">
+                <form class="login-form validate-form">
+                    <span class="login-form-title ">
+                        Sign In
+                    </span>
+    
+                    <div class="wrap-input validate-input " data-validate="Enter username or email">
+                        <input class="input" type="text" name="username" placeholder="username or email">
+                        <span class="focus-input"></span>
+                    </div>
+    
+                    <div class="wrap-input validate-input " data-validate="Enter password">
+                        <input class="input" type="password" name="pass" placeholder="password">
+                        <span class="focus-input"></span>
+                    </div>
+    
+                    <div class="container-login-form-btn">
+                        <button class="login-form-btn">
+                            Sign In
+                        </button>
+                    </div>
+<!--     
+                    <div class="text-center mtb">
+                        <span class="txt1">
+                            Or login with
+                        </span>
+                    </div>
+    
+                    <div class="flex-c ">
+                        <a href="#" class="login-social-item">
+                            <i class="fa fa-facebook-f"></i>
+                        </a>
+    
+                        <a href="#" class="login100-social-item">
+                            <img src="images/icons/icon-google.png" alt="GOOGLE">
+                        </a>
+                    </div>
+     -->
+                    <div class="text-center sign-up-btn">
+                        <a href="#" class="txt2 hov1">
+                            Sign Up
+                        </a>
+                    </div>
+                </form>
+    
+                
+            </div>
+        </div>
+      </div>
 
     <div id="footer"></div>
 </body>
