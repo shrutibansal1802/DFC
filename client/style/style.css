@@ -1,9 +1,9 @@
 :root{
-    --font-c1: #4b2354;
+    --font-c1: #ce46ec;
     --font-c2: rgb(179, 179, 179);
 
-    --primarybg : #efe2f7;
-    --secbg: #240046;
+    --primarybg : #e2cfea;
+    --secbg: #360568;
 }
 *{
     margin: 0px;
@@ -27,6 +27,9 @@
     flex-direction: column;
     justify-content: center;
     color: #fff;
+}
+.text-cont > h2{
+    color: #fcf3ee;
 }
 h5{
     color: var(--font-c2);
@@ -111,7 +114,7 @@ input{
     padding: 0 20px;
     min-width: 160px;
     height: 50px;
-    background-color: #bd59d4;
+    background-color: #5b2a86;
     border-radius: 25px;
     font-family: SourceSansPro-SemiBold;
     font-size: 14px;
