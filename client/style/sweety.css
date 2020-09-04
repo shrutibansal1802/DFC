@@ -1,8 +1,52 @@
-/* html, body{
-    margin: 0%;
+*{
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    overflow-x:hidden;
-
 }
+
+.carousel-inner img {
+    width: 100%;
+    height: 70vh;
+    
+  }
+
+  .btn-floating {
+    width: 30px;
+    height: 30px;
+    background-color: skyblue;
+    border-radius: 50%;
+    box-shadow: 0 6px 10px 0 rgb(172, 170, 170);
+    transition: all 0.1s ease-in-out;
+  
+    
+    color: white;
+    text-align: center;
+    line-height: 28px;
+    
+    position: relative;
+    left: 50%;
+    right: 50%;
+    
+      
+  }
+
+  .card{
+    height: 200px;
+    
+} 
+.card .card-img-top{
+    height: 150px;
+}
+
+.card .card-title{
+    margin-bottom: 2px;
+}
+
+
+
+
+
+
+
 
 
