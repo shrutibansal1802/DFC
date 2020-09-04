@@ -1,5 +1,5 @@
 :root{
-    --bgcolor:#240046;
+    --bgcolor:#a663cc;
 }
 html, body{
     margin: 0%;
@@ -42,7 +42,7 @@ html, body{
 	color:#ffffff;
 }
 #footer ul.social li a:hover{
-	color:#eeeeee;
+	color:#311169;
 }
 
 
