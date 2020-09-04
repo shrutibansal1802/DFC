@@ -2,7 +2,7 @@
     --font-c1: #ce46ec;
     --font-c2: rgb(179, 179, 179);
 
-    --primarybg : #e2cfea;
+    --primarybg : #f2e1fa;
     --secbg: #360568;
 }
 *{
@@ -34,6 +34,7 @@
 h5{
     color: var(--font-c2);
 }
+
 
 .wrap-login{
     padding: 30px;
@@ -159,6 +160,10 @@ input{
     margin: auto;
     padding: 30px 0px;
 }
+
 .about-cont{
     padding: 50px;
+}
+.about> h5{
+    color:rgb(117, 115, 115);
 }
