@@ -2,6 +2,7 @@
     --font-c1: #4b2354;
     --font-c2: rgb(179, 179, 179);
     --primarybg : rgb(241, 236, 236);
+    --secbg: rgb(112, 108, 108);
 }
 *{
     margin: 0px;
@@ -10,8 +11,12 @@
     
     
 }
-
-.text-cont, .form-cont, .vid-cont, .about-cont{
+.text-cont, .form-cont{
+    background:var(--secbg) ;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+ .vid-cont, .about-cont{
     background:var(--primarybg) ;
     padding-top: 50px;
     padding-bottom: 50px;
