@@ -4,6 +4,14 @@
     box-sizing: border-box;
 }
 
+
+
+.container-fluid{
+    padding:0;
+    width: fit-content;
+    background-color: white;
+}
+
 .carousel-inner img {
     width: 100%;
     height: 70vh;
@@ -42,11 +50,74 @@
     margin-bottom: 2px;
 }
 
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: auto;
+  }
 
 
+  .container-fluid{
+    display: grid;
+    place-items: center;
+  text-align: center;
+  background-color: white;
+  
+}
 
-
-
-
-
-
+.slider{
+    
+  max-width: 1100px;
+  display: flex;
+}
+.slider .card{
+  flex: 1;
+  margin: 0 10px;
+  background: #fff;
+}
+.slider .card .img{
+  height: 200px;
+  width: 100%;
+}
+.slider .card .img img{
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.slider .card .content{
+  padding: 10px 20px;
+}
+.card .content .title{
+  font-size: 25px;
+  font-weight: 600;
+}
+.card .content .sub-title{
+  font-size: 20px;
+  font-weight: 600;
+  color: #e74c3c;
+  line-height: 20px;
+}
+.card .content p{
+  text-align: justify;
+  margin: 10px 0;
+}
+.card .content .btn{
+  display: block;
+  text-align: left;
+  margin: 10px 0;
+}
+.card .content .btn button{
+  background: #e74c3c;
+  color: #fff;
+  border: none;
+  outline: none;
+  font-size: 17px;
+  padding: 5px 8px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+.card .content .btn button:hover{
+  transform: scale(0.9);
+}
