@@ -52,7 +52,7 @@ const donorSchema = new mongoose.Schema({
     }]
 });
 
-donorSchema.methods.getPublicProfile= function(){
+donorSchema.methods.toJSON= function(){
     const donor = this;
     const donorObject = donor.toObject();
 
