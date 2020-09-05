@@ -12,6 +12,15 @@
     padding: 50px 0px;
     text-align: justify;
 }
+.your-events{
+    width: 100%;
+    height: auto;
+}
+.carousel-inner img {
+    width: 100%;
+    height: 70vh;
+    
+  }
 .new-event>h3{
     text-align: center;
 }
