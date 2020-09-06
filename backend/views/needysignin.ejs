@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donor For Local</title>
+    <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="/style/style.css">
-    <link rel="script" href="/script/script.js">
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="script" href="script/script.js">
     <script>
 
         $(function () {
@@ -18,29 +18,28 @@
 </head>
 
 <body>
-    
-    <div id="header"><%- include('header.ejs') %> </div>
+    <div id="header"></div>
     <div class="row">
         <div class="text-center col-sm-6 text-cont">
-            <h2>Donate for a cause</h2>
+            <h2>Hey NGO</h2>
             <h5>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Ducimus tempore iure dolorem nisi magnam sit
                 ratione harum quaerat impedit nemo. Exercitationem accusamus quis maxime voluptatum porro ex, beatae
                 aliquam totam.</h5>
         </div>
         <div class="col-sm-6 form-cont">
             <div class="wrap-login ">
-                <form class="login-form validate-form" action="/" method="POST">
+                <form class="login-form validate-form">
                     <span class="login-form-title ">
                         Sign In
                     </span>
 
                     <div class="wrap-input validate-input " data-validate="Enter username or email">
-                        <input class="input" type="text" name="email" placeholder="email">
+                        <input class="input" type="text" name="username" placeholder="username or email">
                         <span class="focus-input"></span>
                     </div>
 
                     <div class="wrap-input validate-input " data-validate="Enter password">
-                        <input class="input" type="password" name="password" placeholder="password">
+                        <input class="input" type="password" name="pass" placeholder="password">
                         <span class="focus-input"></span>
                     </div>
 
@@ -65,8 +64,8 @@
                     </div>
 
                     <div class="text-center sign-up-btn">
-                        <a href="/client/needySignin.html" class="txt2 hov1">
-                            Are You From NGO?
+                        <a href="/client/needySignup.html" class="txt2 hov1">
+                            Register your NGO
                         </a>
                     </div>
                 </form>
@@ -93,39 +92,6 @@
     </div>
 
     <div id="footer"></div>
-    <script>
-        const form = document.querySelector('form');
-
-        form.addEventListener('submit', async (e)=>{
-            e.preventDefault();
-
-            const email = form.email.value;
-            const password = form.password.value;
-            console.log( email, password );
-
-            try {
-                const res = await fetch('/sweetySignin', {
-                    method:'POST',
-                    body:JSON.stringify({
-                        email, 
-                        password
-                    }),
-                    headers:{
-                        'Content-Type':'application/json'
-                    }
-                });
-                const data = await res.json()
-                console.log(data)
-                if(data.donor){
-                    location.assign('/sweety')
-                } else {
-                    alert('Check your email and password')
-                }
-            } catch (e) {
-                console.log(err)
-            }
-        })
-    </script>
 </body>
 
 </html>
