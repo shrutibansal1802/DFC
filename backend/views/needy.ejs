@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Document</title>
+  <title>Needy Home</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -23,7 +23,7 @@
 
 <body>
   <!-- header -->
-  <div id="header"></div>
+  <div id="header"><%- include('header.ejs') %> </div>
 
   <div class="welcome">
     <div class="welcome-text">
@@ -39,16 +39,17 @@
     <h4>Your Events</h4>
     
     <div class="card-columns">
+      <% events.forEach(function(event){ %> 
        <div class="card bg-primary">
         
         <div class="event-details">
       
-      <h3 class="event-name"><%= events[0].name %></h3>
-          <p><%= events[0].description %></p>
-          <p><%= events[0].city %></p>
+      <h3 class="event-name"><%= event.name %></h3>
+          <p><%= event.description %></p>
+          <p><%= event.city %></p>
           <table class="event-req">
               <tr>
-                  <th>requirement <%= events[0].volunteersRequired %></th>
+                  <th>requirement <%= event.volunteersRequired %></th>
                   <th>remaining</th>
               </tr>
               <tr>
@@ -59,100 +60,7 @@
           </table>
         </div>
       </div></a>
-     
-  
-      <div class="card bg-warning">
-        <div class="event-details">
-          <h3 class="event-name">Event Name</h3>
-  
-          <table class="event-req">
-              <tr>
-                  <th>requirement </th>
-                  <th>remaining</th>
-              </tr>
-              <tr>
-                  <th>requirement 2</th>
-                  <th>completed</th>
-              </tr>
-              
-          </table>
-      </div>
-      </div></a>
-  
-  
-      <div class="card bg-success">
-        <div class="event-details">
-          <h3 class="event-name">Event Name</h3>
-  
-          <table class="event-req">
-              <tr>
-                  <th>requirement 1</th>
-                  <th>remaining</th>
-              </tr>
-              <tr>
-                  <th>requirement 2</th>
-                  <th>completed</th>
-              </tr>
-              
-          </table>
-      </div>
-      </div></a>
-      
-  
-      <div class="card bg-danger">
-        <div class="event-details">
-          <h3 class="event-name">Event Name</h3>
-  
-          <table class="event-req">
-              <tr>
-                  <th>requirement 1</th>
-                  <th>remaining</th>
-              </tr>
-              <tr>
-                  <th>requirement 2</th>
-                  <th>completed</th>
-              </tr>
-              
-          </table>
-      </div>
-      </div></a>
-      
-  
-     <div class="card bg-light ">
-        <div class="event-details">
-          <h3 class="event-name">Event Name</h3>
-  
-          <table class="event-req">
-              <tr>
-                  <th>requirement 1</th>
-                  <th>remaining</th>
-              </tr>
-              <tr>
-                  <th>requirement 2</th>
-                  <th>completed</th>
-              </tr>
-              
-          </table>
-      </div>
-      </div></a>
-     
-      <div class="card bg-info text-white">
-        <div class="event-details">
-          <h3 class="event-name">Event Name</h3>
-  
-          <table class="event-req">
-              <tr>
-                  <th>requirement 1</th>
-                  <th>remaining</th>
-              </tr>
-              <tr>
-                  <th>requirement 2</th>
-                  <th>completed</th>
-              </tr>
-              
-          </table>
-      </div>
-      </div></a>
+      <% }); %> 
       
     </div>
   

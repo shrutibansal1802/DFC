@@ -22,11 +22,17 @@ router.post('/needySignup', async (req, res)=>{
     }
 });
 
+// Login Page
+router.get('/needysignin', (req, res)=>{
+    res.render('needysignin')
+})
+
 //login
 router.post('/ngos/login', async (req, res)=>{
     try {
         const ngo = await Ngo.findByCredential(req.body.email, req.body.password);
         const token = await ngo.generateAuthToken();
+        res.cookie('jwt1', token)
         res.send({ ngo, token });
     } catch (e) {
         res.status(400).send(e);
@@ -51,17 +57,18 @@ router.post('/ngos/logout', auth, async (req, res)=>{
 
 // })
 
+
 // GET by city
 router.get('/ngolist', async(req, res)=>{
     const city = req.query.city;
 
     try {
         if(city){
-            const ngobycity = await Ngo.findOne({ city });
-            res.json(ngobycity)
+            const ngos = await Ngo.findOne({ city });
+            res.render('ngolist', {ngos})
         }
         const ngos = await Ngo.find({});
-        res.json(ngos);
+        res.render('ngolist', {ngos});
     } catch (e) {
         res.status(400).send()
     }

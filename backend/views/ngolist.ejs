@@ -20,7 +20,8 @@
 </head>
 <body>
 
-  <div id="header"></div>
+  <div id="header"><%- include('header.ejs') %> </div>
+
 
 
 
@@ -28,11 +29,11 @@
 
 
 <ul>
-
+  <% ngos.forEach(function(ngo){ %> 
     <div class="card" >
-        <h5 class="card-header">NGO1</h5>
+        <h5 class="card-header"><%= ngo.ngoname %> </h5>
         <div class="card-body">
-          <h6 class="card-title">NGO type1</h6>
+          <h6 class="card-title"><%= ngo.city %> </h6>
           <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt molestiae non quos animi facilis impedit voluptate distinctio nobis consectetur nam dolorum necessitatibus voluptates illo iure dicta nisi neque, perferendis unde?
 
           </p>
@@ -40,59 +41,7 @@
         </div>
       </div>
       <hr>
-
-      <div class="card" >
-        <h5 class="card-header">NGO1</h5>
-        <div class="card-body">
-          <h6 class="card-title">NGO type1</h6>
-          <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt molestiae non quos animi facilis impedit voluptate distinctio nobis consectetur nam dolorum necessitatibus voluptates illo iure dicta nisi neque, perferendis unde?
-
-          </p>
-          <a href="#" class="btn btn-primary">Like</a>
-        </div>
-      </div>
-
-      <hr>
-
-      <div class="card" >
-        <h5 class="card-header">NGO1</h5>
-        <div class="card-body">
-          <h6 class="card-title">NGO type1</h6>
-          <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt molestiae non quos animi facilis impedit voluptate distinctio nobis consectetur nam dolorum necessitatibus voluptates illo iure dicta nisi neque, perferendis unde?
-
-          </p>
-          <a href="#" class="btn btn-primary">Like</a>
-        </div>
-      </div>
-
-<hr>
-
-      <div class="card" >
-        <h5 class="card-header">NGO1</h5>
-        <div class="card-body">
-          <h6 class="card-title">NGO type1</h6>
-          <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt molestiae non quos animi facilis impedit voluptate distinctio nobis consectetur nam dolorum necessitatibus voluptates illo iure dicta nisi neque, perferendis unde?
-
-          </p>
-          <a href="#" class="btn btn-primary">Like</a>
-        </div>
-      </div>
-
-      <hr>
-
-      <div class="card" >
-        <h5 class="card-header">NGO1</h5>
-        <div class="card-body">
-          <h6 class="card-title">NGO type1</h6>
-          <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt molestiae non quos animi facilis impedit voluptate distinctio nobis consectetur nam dolorum necessitatibus voluptates illo iure dicta nisi neque, perferendis unde?
-
-          </p>
-          <a href="#" class="btn btn-primary">Like</a>
-        </div>
-      </div>
-
-      <hr>
-
+      <% }) %> 
 </ul>
 
 <div class="container"> 
@@ -103,7 +52,7 @@
     </div>
 </div>
 
-  <div id="footer"></div>
+<div id="footer"><%- include('footer.ejs') %> </div>
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>

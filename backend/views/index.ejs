@@ -29,7 +29,7 @@
         </div>
         <div class="col-sm-6 form-cont">
             <div class="wrap-login ">
-                <form class="login-form validate-form" action="/" method="POST">
+                <form class="login-form" id="login-form">
                     <span class="login-form-title ">
                         Sign In
                     </span>
@@ -45,7 +45,7 @@
                     </div>
 
                     <div class="container-login-form-btn">
-                        <button class="login-form-btn">
+                        <button class="login-form-btn" type="submit">
                             Sign In
                         </button>
                     </div>
@@ -59,13 +59,13 @@
                  
                     -->
                     <div class="text-center sign-up-btn">
-                        <a href="/client/sweetySignup.html" class="txt2 hov1">
+                        <a href="sweetySignup" class="txt2 hov1">
                             Sign Up
                         </a>
                     </div>
 
                     <div class="text-center sign-up-btn">
-                        <a href="/client/needySignin.html" class="txt2 hov1">
+                        <a href="needySignin" class="txt2 hov1">
                             Are You From NGO?
                         </a>
                     </div>
@@ -92,9 +92,10 @@
         </div>
     </div>
 
-    <div id="footer"></div>
+    <div id="footer"><%- include('footer.ejs') %> </div>
+
     <script>
-        const form = document.querySelector('form');
+        const form = document.getElementById('login-form');
 
         form.addEventListener('submit', async (e)=>{
             e.preventDefault();

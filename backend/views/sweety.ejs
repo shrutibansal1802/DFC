@@ -13,16 +13,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
  
-    <script> 
-      $(function(){
-        $("#header").load("header.html"); 
-        $("#footer").load("footer.html"); 
-      });
-      </script> 
+    
 </head>
 <body>
 
-  <div id="header"></div>
+  <div id="header"><%- include('header.ejs') %> </div>
   
 
   <!-- Full-Sreen Carousel -->
@@ -210,7 +205,7 @@ tomottow</div>
   <div class="card-body">
     <h5 class="card-title">Do you know all your local NGOs</h5>
     <p class="card-text">It's always helpful to have knowledge about all the NGOs who work hard to make others life better</p>
-    <a href="/ngolist/city=<%= donor.city %> " class="btn btn-primary">Let's meet</a>
+    <a href="/ngolist" class="btn btn-primary">Let's meet</a>
   </div>
 </div>
 
@@ -221,7 +216,7 @@ tomottow</div>
 
 
   <!-- Full-Sreen Carousel -->
-  <div id="footer"></div>
+  <div id="footer"><%- include('footer.ejs') %> </div>
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
