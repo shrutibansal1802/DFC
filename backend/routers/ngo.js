@@ -1,17 +1,24 @@
 const router = require('express').Router();
 const Ngo = require('../models/ngo');
+const Event = require('../models/event')
 const auth = require('../middleware/authNgo')
 
 // signup
-router.post('/ngos', async (req, res)=>{
+router.get('/needySignup', async (req, res)=>{
+    res.render('needySignup')
+})
+
+// signup
+router.post('/needySignup', async (req, res)=>{
     const ngo = new Ngo(req.body);
 
     try {
         await ngo.save();
         const token = await ngo.generateAuthToken();
+        res.cookie('jwt1', token)
         res.send({ ngo, token });
     } catch (e) {
-        res.status(400).send(e)
+        res.status(400).json(e)
     }
 });
 
@@ -43,5 +50,30 @@ router.post('/ngos/logout', auth, async (req, res)=>{
 // router.get('/ngos/me', auth, async (req, res)+>{
 
 // })
+
+// GET by city
+router.get('/ngolist', async(req, res)=>{
+    const city = req.query.city;
+
+    try {
+        if(city){
+            const ngobycity = await Ngo.findOne({ city });
+            res.json(ngobycity)
+        }
+        const ngos = await Ngo.find({});
+        res.json(ngos);
+    } catch (e) {
+        res.status(400).send()
+    }
+});
+
+// Home Page
+router.get('/needy', auth, async (req, res)=>{
+    const events = await Event.find({owner: req.ngo._id})
+    res.render('needy', {
+        ngo:req.ngo,
+        events
+    })
+})
 
 module.exports = router;

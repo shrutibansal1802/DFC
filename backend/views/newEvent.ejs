@@ -26,21 +26,26 @@
                         </span>
 
                         <div class="wrap-input validate-input " >
-                            <input class="input" type="text" name="username" placeholder="Name of Event">
+                            <input class="input" type="text" name="name" placeholder="Name of Event">
                             <span class="focus-input"></span>
                         </div>
 
                         <div class="wrap-input validate-input " data-validate="Enter username or email">
-                            <input class="input" type="text" name="name" placeholder="Name of the organization">
+                            <input class="input" type="text" value="<%= ngo.ngoname %>" placeholder="Name of the organization">
                             <span class="focus-input"></span>
                         </div>
 
                         <div class="wrap-input validate-input " data-validate="Enter username or email">
-                            <input class="input" type="number" name="mobile" placeholder="Mobile number">
+                            <input class="input" type="text" name="description" placeholder="Description of Event">
+                            <span class="focus-input"></span>
+                        </div>
+
+                        <div class="wrap-input validate-input " data-validate="Enter username or email">
+                            <input class="input" type="number" name="contact" placeholder="Mobile number">
                             <span class="focus-input"></span>
                         </div>
                         <div class="wrap-input validate-input " data-validate="Enter username or email">
-                            <input class="input" type="number" name="mobile" placeholder="Number of volunteers">
+                            <input class="input" type="number" name="volunteersRequired" placeholder="Number of volunteers">
                             <span class="focus-input"></span>
                         </div>
 
@@ -48,8 +53,8 @@
 
                             <select class="input" type="select"  name="category" placeholder="Category">
                                 <option>Select Category</option>
-                                <option value="health">Single day Weekend Event</option>
-                                <option value="education">Single day Weekday Event</option>
+                                <option value="singleday">Single day Weekend Event</option>
+                                <option value="multipleday">Single day Weekday Event</option>
                                 <option value="health">Multiple day Weekend Event</option>
                                 <option value="education">Multiple day Weekday Event</option>
 
@@ -59,21 +64,21 @@
                         </div>
                         
                         <div class="wrap-input validate-input " data-validate="Enter extra Requirement">
-                            <input class="input" type="text" name="additionReq" placeholder="Other Requirement">
+                            <input class="input" type="text" name="otherRequirements" placeholder="Other Requirement">
                             <span class="focus-input"></span>
                         </div>
                         <div class="wrap-input validate-input " data-validate="Enter password">
-                            <input class="input" type="text" name="locality" placeholder="Locality">
+                            <input class="input" type="text" name="city" placeholder="Locality">
                             <span class="focus-input"></span>
                         </div>
 
                         <div class="wrap-input validate-input " data-validate="Enter password">
-                            <input class="input" type="password" name="pass" placeholder="password">
+                            <input class="input" type="text" name="address" placeholder="address">
                             <span class="focus-input"></span>
                         </div>
 
                         <div class="container-login-form-btn">
-                            <button class="login-form-btn">
+                            <button class="login-form-btn" type="submit">
                                 Create Event
                             </button>
                         </div>
@@ -82,4 +87,44 @@
                     </form>
                 </div>
             </div>
+            <script>
+                const form = document.querySelector('form')
+
+                form.addEventListener('submit', async (e)=>{
+                    e.preventDefault();
+
+                    const name = form.name.value;
+                    const description = form.description.value;
+                    const volunteersRequired = form.volunteersRequired.value;
+                    const category = form.category.value;
+                    const city = form.city.value;
+                    const otherRequirements = form.otherRequirements.value;
+                    const address = form.address.value;
+
+                    try {
+                        const res = await fetch('/events', {
+                        method:'POST',
+                        body:JSON.stringify({
+                            name,
+                            description, 
+                            volunteersRequired, 
+                            category, 
+                            city, 
+                            otherRequirements,
+                            address
+                        }),
+                        headers:{
+                            'Content-Type':'application/json'
+                        }
+                    });
+                    const data = await res.json()
+                    console.log(data)
+                    if(data){
+                        location.assign('/needy')
+                    }
+                    } catch (e) {
+                        alert('Please check all the fields')
+                    }
+                })
+            </script>
         </body>

@@ -2,26 +2,39 @@ const router = require('express').Router();
 const Donor = require('../models/donor');
 const auth = require('../middleware/authDonor');
 
+
+// signup page
+router.get('/sweetySignup', async(req, res)=>{
+    res.render('sweetySignup');
+});
+
 // signup
-router.post('/donors', async (req, res)=>{
+router.post('/sweetySignup', async (req, res)=>{
     const donor = new Donor(req.body);
     try {
         await donor.save();
         const token = await donor.generateAuthToken()
+        res.cookie('jwt', token)
         res.send({ donor, token});
     } catch (e) {
-        res.status(400).send(e)
+        res.status(400).json(e)
     }
 });
 
+//Signin route
+router.get('/', async(req, res)=>{
+    res.render('index');
+});
+
 // signin
-router.post('/donors/login', async (req, res)=>{
+router.post('/sweetySignin', async (req, res)=>{
     try {
         const donor = await Donor.findByCredentials(req.body.email, req.body.password);
         const token = await donor.generateAuthToken();
-        res.send({donor, token})
+        res.cookie('jwt', token)
+        res.json({donor, token})
     } catch (e) {
-        res.status(400).send()
+        res.status(400).json(e)
     }
 });
 
@@ -33,16 +46,19 @@ router.post('/donors/logout', auth, async(req, res)=>{
         });
         await req.donor.save();
 
-        res.send();
+        res.redirect('/');
     } catch (e) {
         res.status(400).send();
     }
 })
 
 // donor profile
-router.get('/donors/me', auth, async (req, res)=>{
+router.get('/sweety', auth, async (req, res)=>{
     try {
-        res.send(req.donor);
+        const donor = req.donor;
+        res.render('sweety', {
+            donor
+        });
     } catch (e) {
         res.status(400).send();
     }

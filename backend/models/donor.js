@@ -6,13 +6,13 @@ const jwt = require('jsonwebtoken');
 const donorSchema = new mongoose.Schema({
     name:{
         type:String,
-        required:true,
+        required: true,
         trim:true
     },
     email:{
         type: String,
         unique: true,
-        required: true,
+        required: [true, 'Please enter an email'],
         trim: true,
         lowercase: true,
         validate(value){
@@ -33,9 +33,14 @@ const donorSchema = new mongoose.Schema({
     profession:{
         type: String,
     },
+    city:{
+        type:String,
+        lowercase: true,
+        trim:true
+    },
     password:{
         type:String,
-        required:true,
+        required:[true, 'Please enter a password'],
         minlength:7,
         trim:true,
         validate(value){

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="script" href="script/script.js">
+    <script>
+        $(function () {
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+        })
+    </script>
+</head>
+<body>
+     <div class="col-sm-6 form-cont">
+                <div class="wrap-login ">
+                    <form class="login-form validate-form" action="/donors" method="POST">
+                        <span class="login-form-title ">
+                            Sign Up
+                        </span>
+
+                        <div class="wrap-input validate-input " data-validate="Enter username or email">
+                            <input class="input" type="text" name="name" id="name" placeholder="Name">
+                            <span class="focus-input"></span>
+                        </div>
+
+
+                        <div class="wrap-input validate-input " data-validate="Enter username or email">
+                            <input class="input" type="text" name="email" placeholder="Email Address">
+                            <span class="focus-input"></span>
+                        </div>
+
+                        <div class="wrap-input validate-input " data-validate="Enter username or email">
+                            <input class="input" type="text" name="contact" placeholder="Mobile number">
+                            <span class="focus-input"></span>
+                        </div>
+
+                        <div class="wrap-input validate-input " data-validate="Enter username or email">
+                            <input class="input" type="text" name="hobbies" placeholder="Hobbies">
+                            <span class="focus-input"></span>
+                        </div>
+
+                        <div class="wrap-input validate-input " data-validate="Enter username or email">
+                            <input class="input" type="text" name="profession" placeholder="Profession">
+                            <span class="focus-input"></span>
+                        </div>
+
+                        <div class="wrap-input validate-input " data-validate="Enter password">
+                            <input class="input" type="text" name="city" placeholder="City">
+                            <span class="focus-input"></span>
+                        </div>
+
+                        <div class="wrap-input validate-input " data-validate="Enter password">
+                            <input class="input" type="password" name="password" placeholder="password">
+                            <span class="focus-input"></span>
+                        </div>
+
+                        <div class="container-login-form-btn">
+                            <button class="login-form-btn" type="submit">
+                                Sign Up
+                            </button>
+                        </div>
+        
+                     
+    
+                        <div class="text-center sign-up-btn">
+                            <a href="/client/index.html" class="txt2 hov1">
+                                Sign In
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <script>
+                const form = document.querySelector('form');
+
+                form.addEventListener('submit', async (e)=>{
+                    e.preventDefault();
+
+                    const name = form.name.value;
+                    const email = form.email.value;
+                    const contact = form.contact.value;
+                    const hobbies = form.hobbies.value;
+                    const profession = form.profession.value;
+                    const city = form.city.value;
+                    const password = form.password.value;
+                    console.log( name, email, contact, hobbies, profession, city, password );
+
+                    try {
+                        const res = await fetch('/sweetySignup', {
+                            method:'POST',
+                            body:JSON.stringify({
+                                name,
+                                email, 
+                                contact, 
+                                hobbies, 
+                                profession, 
+                                city,
+                                password
+                            }),
+                            headers:{
+                                'Content-Type':'application/json'
+                            }
+                        });
+                        const data = await res.json()
+                        console.log(data)
+                        if(data.donor){
+                            location.assign('/sweety')
+                        }
+                    } catch (e) {
+                        console.log(err)
+                    }
+                })
+            </script>
+        </body>

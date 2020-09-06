@@ -3,7 +3,7 @@ const Ngo = require('../models/ngo');
 
 const auth = async (req, res, next)=>{
     try {
-        const token = req.header('Authorization').replace('Bearer ', '');
+        const token = req.cookies.jwt1;
         const decoded = jwt.verify(token, 'donorforlocal');
         const ngo = await Ngo.findOne({ _id: decoded._id, 'tokens.token':token });
         if(!ngo){

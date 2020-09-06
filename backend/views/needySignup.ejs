@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SignUp</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript">
+//         var fileTypes = ['pdf', 'docx', 'rtf', 'jpg', 'jpeg', 'png', 'txt'];  //acceptable file types
+// function readURL(input) {
+//     if (input.files && input.files[0]) {
+//         var extension = input.files[0].name.split('.').pop().toLowerCase(),  //file extension from input file
+//             isSuccess = fileTypes.indexOf(extension) > -1;  //is extension in acceptable types
+
+//         if (isSuccess) { //yes
+//             var reader = new FileReader();
+//             reader.onload = function (e) {
+//                 if (extension == 'pdf'){
+//                     $(input).closest('.fileUpload').find(".icon").attr('src','https://image.flaticon.com/icons/svg/179/179483.svg');
+//                 }
+//                 else if (extension == 'docx'){
+//                     $(input).closest('.fileUpload').find(".icon").attr('src','https://image.flaticon.com/icons/svg/281/281760.svg');
+//                 }
+//                 else if (extension == 'rtf'){
+//                     $(input).closest('.fileUpload').find(".icon").attr('src','https://image.flaticon.com/icons/svg/136/136539.svg');
+//                 } 
+//                 else if (extension == 'png'){ $(input).closest('.fileUpload').find(".icon").attr('src','https://image.flaticon.com/icons/svg/136/136523.svg'); 
+//                 }
+//                 else if (extension == 'jpg' || extension == 'jpeg'){
+//                     $(input).closest('.fileUpload').find(".icon").attr('src','https://image.flaticon.com/icons/svg/136/136524.svg');
+//                 }
+//               else if (extension == 'txt'){
+//                     $(input).closest('.fileUpload').find(".icon").attr('src','https://image.flaticon.com/icons/svg/136/136538.svg');
+//                 }
+//                 else {
+//                     //console.log('here=>'+$(input).closest('.uploadDoc').length);
+//                     $(input).closest('.uploadDoc').find(".docErr").slideUp('slow');
+//                 }
+//             }
+
+//             reader.readAsDataURL(input.files[0]);
+//         }
+//         else {
+//                 //console.log('here=>'+$(input).closest('.uploadDoc').find(".docErr").length);
+//             $(input).closest('.uploadDoc').find(".docErr").fadeIn();
+//             setTimeout(function() {
+//                     $('.docErr').fadeOut('slow');
+//                     }, 9000);
+//         }
+//     }
+// }
+// $(document).ready(function(){
+   
+//    $(document).on('change','.up', function(){
+//     var id = $(this).attr('id'); /* gets the filepath and filename from the input */
+//        var profilePicValue = $(this).val();
+//        var fileNameStart = profilePicValue.lastIndexOf('\\'); /* finds the end of the filepath */
+//        profilePicValue = profilePicValue.substr(fileNameStart + 1).substring(0,20); /* isolates the filename */
+//        //var profilePicLabelText = $(".upl"); /* finds the label text */
+//        if (profilePicValue != '') {
+//         //console.log($(this).closest('.fileUpload').find('.upl').length);
+//           $(this).closest('.fileUpload').find('.upl').html(profilePicValue); /* changes the label text */
+//        }
+//    });
+
+//    $(".btn-new").on('click',function(){
+//         $("#uploader").append('<div class="row uploadDoc"><div class="col-sm-3"><div class="docErr">Please upload valid file</div><!--error--><div class="fileUpload btn btn-orange"> <img src="https://image.flaticon.com/icons/svg/136/136549.svg" class="icon"><span class="upl" id="upload">Upload document</span><input type="file" class="upload up" id="up" onchange="readURL(this);" /></div></div><div class="col-sm-8"><input type="text" class="form-control" name="" placeholder="Note"></div><div class="col-sm-1"><a class="btn-check"><i class="fa fa-times"></i></a></div></div>');
+//    });
+    
+//    $(document).on("click", "a.btn-check" , function() {
+//      if($(".uploadDoc").length>1){
+//         $(this).closest(".uploadDoc").remove();
+//       }else{
+//         alert("You have to upload at least one document.");
+//       } 
+//    });
+// });
+    </script>
+    <link rel="stylesheet" href="style/style.css">
+    <link rel="script" href="script/script.js">
+    <script>
+        $(function () {
+            $("#header").load("header.html");
+            $("#footer").load("footer.html");
+        })
+    </script>
+</head>
+<body>
+     <div class="col-sm-6 form-cont">
+                <div class="wrap-login ">
+                    <form class="login-form validate-form">
+                        <span class="login-form-title ">
+                            Sign Up
+                        </span>
+
+                        <div class="wrap-input validate-input " >
+                            <input class="input" type="text" name="name" placeholder="Username">
+                            <span class="focus-input"></span>
+                        </div>
+
+                        <div class="wrap-input validate-input " data-validate="Enter username or email">
+                            <input class="input" type="text" name="ngoname" placeholder="Name of the organization">
+                            <span class="focus-input"></span>
+                        </div>
+
+                        <div class="wrap-input validate-input " data-validate="Enter username or email">
+                            <input class="input" type="text" name="email" placeholder="Email Address">
+                            <span class="focus-input"></span>
+                        </div>
+
+                        <div class="wrap-input validate-input " data-validate="Enter username or email">
+                            <input class="input" type="text" name="contact" placeholder="Mobile number">
+                            <span class="focus-input"></span>
+                        </div>
+
+                        <div class="wrap-input validate-input " data-validate="Enter username or email">
+
+                            <select class="input" type="select"  name="category" placeholder="Category">
+                                <option>Select Category</option>
+                                <option value="health">Health and family welfare</option>
+                                <option value="education">Education and literacy</option>
+                                <option value="human rights">Human Rights</option>
+                                <option value="Elderly">Aged/Elderly</option>
+                                <option value="animal">Animal Husbandry</option>
+                                <option value="children">Children</option>
+
+                            <span class="focus-input"></span>
+                        </select>
+
+                        </div>
+                        
+
+                        <div class="wrap-input validate-input " data-validate="Enter username or email">
+                            <input class="input" type="text" name="id" placeholder="Unique Id">
+                            <span class="focus-input"></span>
+                        </div>
+
+                        <div class="container">
+                        <div class="row it">
+                        <div class="col-sm-offset-1 col-sm-10" id="one">
+                        <p>
+                            Please upload documents only in 'pdf', 'docx', 'rtf', 'jpg', 'jpeg', 'png' & 'text' format.
+                        </p><br>
+                        <div class="row">
+                            <div class="col-sm-offset-4 col-sm-4 form-group">
+                            <h3 class="text-center">Registration Certificate</h3>
+                            </div><!--form-group-->
+                        </div><!--row-->
+                        <div id="uploader">
+                        <div class="row uploadDoc">
+                            <div class="col-sm-3">
+                                <div class="docErr">Please upload valid file</div><!--error-->
+                                <div class="fileUpload btn btn-orange">
+                                <img src="https://image.flaticon.com/icons/svg/136/136549.svg" class="icon">
+                                <span class="upl" id="upload">Upload document</span>
+                                <input type="file" class="upload up" id="up" onchange="readURL(this);" />
+                            </div><!-- btn-orange -->
+                        </div><!-- col-3 -->
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" name="" placeholder="Note">
+                        </div><!--col-8-->
+                        <div class="col-sm-1"><a class="btn-check"><i class="fa fa-times"></i></a></div><!-- col-1 -->
+                        </div><!--row-->
+                        </div><!--uploader-->
+                        
+                        </div><!--one-->
+                        </div><!-- row -->
+                        </div><!-- container -->
+
+                        <div class="wrap-input validate-input " data-validate="Enter password">
+                            <input class="input" type="text" name="city" placeholder="City">
+                            <span class="focus-input"></span>
+                        </div>
+
+                        <div class="wrap-input validate-input " data-validate="Enter password">
+                            <input class="input" type="password" name="password" placeholder="password">
+                            <span class="focus-input"></span>
+                        </div>
+
+                        <div class="container-login-form-btn">
+                            <button class="login-form-btn" type="submit">
+                                Sign Up
+                            </button>
+                        </div>
+                        <!--     
+                        <div class="text-center mtb">
+                            <span class="txt1">
+                                Or login with
+                            </span>
+                        </div>
+        
+                     
+         -->
+                        <div class="text-center sign-up-btn">
+                            <a href="#" class="txt2 hov1">
+                                Sign In
+                            </a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <script>
+                const form = document.querySelector('form');
+
+form.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+
+    const ngoname = form.ngoname.value;
+    const email = form.email.value;
+    const contact = form.contact.value;
+    const category = form.category.value;
+    const city = form.city.value;
+    const password = form.password.value;
+    console.log( name, email, contact, category, city, password );
+
+    try {
+        const res = await fetch('/needySignup', {
+            method:'POST',
+            body:JSON.stringify({
+                ngoname,
+                email, 
+                contact, 
+                category, 
+                city, 
+                password
+            }),
+            headers:{
+                'Content-Type':'application/json'
+            }
+        });
+        const data = await res.json()
+        console.log(data)
+        if(data.ngo){
+            location.assign('/needy')
+        }
+    } catch (e) {
+        alert('Please check all the fields')
+    }
+})
+            </script>
+        </body>

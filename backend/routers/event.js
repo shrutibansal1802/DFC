@@ -2,6 +2,13 @@ const router = require('express').Router();
 const auth = require('../middleware/authNgo');
 const Event = require('../models/event');
 
+// GET create event
+router.get('/newEvent', auth, (req, res)=>{
+    res.render('newEvent', {
+        ngo:req.ngo
+    })
+})
+
 // Create an event
 router.post('/events', auth, async (req, res)=>{
     const event = new Event({
