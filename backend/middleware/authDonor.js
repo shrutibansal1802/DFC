@@ -3,7 +3,6 @@ const Donor = require('../models/donor');
 
 const auth = async (req, res, next)=>{
     try {
-        const tokenHeader = req.headers['x-access-token'] || req.headers['Authorization'];
         const token = req.cookies.jwt;
         const decoded = jwt.verify(token, 'donorforlocal');
         const donor = await Donor.findOne({ _id:decoded._id, 'tokens.token':token });

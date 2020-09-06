@@ -64,6 +64,12 @@ router.get('/sweety', auth, async (req, res)=>{
     }
 });
 
+router.get('/profile', auth, (req, res)=>{
+    res.render('profile', {
+        donor: req.donor
+    })
+})
+
 // donor profile update
 router.patch('/donors/:id', async (req, res)=>{
     const updates = Object.keys(req.body);
