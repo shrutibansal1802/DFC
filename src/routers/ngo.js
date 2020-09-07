@@ -5,7 +5,10 @@ const auth = require('../middleware/authNgo')
 
 // signup
 router.get('/needySignup', async (req, res)=>{
-    res.render('needySignup')
+    res.render('needySignup', {
+        ngo: req.ngo,
+        donor: req.donor
+    })
 })
 
 // signup
@@ -24,7 +27,10 @@ router.post('/needySignup', async (req, res)=>{
 
 // Login Page
 router.get('/needysignin', (req, res)=>{
-    res.render('needysignin')
+    res.render('needysignin', {
+        ngo: req.ngo,
+        donor: req.donor
+    })
 })
 
 //login
@@ -40,13 +46,14 @@ router.post('/ngos/login', async (req, res)=>{
 });
 
 // logout
-router.post('/ngos/logout', auth, async (req, res)=>{
+router.get('/ngo/logout', auth, async (req, res)=>{
     try {
         req.ngo.tokens = req.ngo.tokens.filter((token)=>{
             return token.token !== req.token;
         })
         await req.ngo.save()
-        res.send();
+        res.cookie('jwt1', '', {maxAge:1})
+        res.redirect('/needySignin');
     } catch (e) {
         res.status(400).send();
     }
@@ -59,16 +66,24 @@ router.post('/ngos/logout', auth, async (req, res)=>{
 
 
 // GET by city
-router.get('/ngolist', async(req, res)=>{
+router.get('/ngos', async(req, res)=>{
     const city = req.query.city;
 
     try {
         if(city){
-            const ngos = await Ngo.findOne({ city });
-            res.render('ngolist', {ngos})
+            const ngos = await Ngo.find({ city });
+            res.render('ngolist', {
+                ngos,
+                ngo: req.ngo,
+                donor: req.donor
+            })
         }
         const ngos = await Ngo.find({});
-        res.render('ngolist', {ngos});
+        res.render('ngolist', {
+            ngos,
+            ngo: req.ngo,
+            donor: req.donor
+        });
     } catch (e) {
         res.status(400).send()
     }
@@ -79,7 +94,8 @@ router.get('/needy', auth, async (req, res)=>{
     const events = await Event.find({owner: req.ngo._id})
     res.render('needy', {
         ngo:req.ngo,
-        events
+        events,
+        donor: req.donor
     })
 })
 

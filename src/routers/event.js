@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const auth = require('../middleware/authNgo');
 const Event = require('../models/event');
+const Ngo = require('../models/ngo');
 
 // GET create event
 router.get('/newEvent', auth, (req, res)=>{
@@ -30,13 +31,21 @@ router.get('/events', async(req, res)=>{
 
     try {
         if(city){
-            const eventsbycity = await Event.findOne({ city });
-            res.send(eventsbycity)
+            const eventsbycity = await Event.find({ city: city });
+            res.render('citywise', {
+                events: eventsbycity,
+                donor:req.donor,
+                ngo: req.ngo
+            })
         }
         const events = await Event.find({});
-        res.send(events);
+        res.render('citywise', {
+            events,
+            donor:req.donor,
+            ngo: req.ngo
+        });
     } catch (e) {
-        res.status(400).send()
+        res.status(400).send(e)
     }
 });
 

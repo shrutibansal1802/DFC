@@ -23,7 +23,10 @@ router.post('/sweetySignup', async (req, res)=>{
 
 //Signin route
 router.get('/', async(req, res)=>{
-    res.render('index');
+    res.render('index', {
+        donor: req.donor,
+        ngo: req.ngo
+    });
 });
 
 // signin
@@ -39,13 +42,13 @@ router.post('/sweetySignin', async (req, res)=>{
 });
 
 // logout
-router.post('/donors/logout', auth, async(req, res)=>{
+router.get('/donor/logout', auth, async(req, res)=>{
     try {
         req.donor.tokens = req.donor.tokens.filter(token=>{
             return token.token !== req.token
         });
         await req.donor.save();
-
+        res.cookie('jwt', '', { maxAge:1 })
         res.redirect('/');
     } catch (e) {
         res.status(400).send();

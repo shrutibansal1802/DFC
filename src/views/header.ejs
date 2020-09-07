@@ -41,24 +41,25 @@
             
           </ul>
           <form class="form-inline my-2 my-lg-0">
-            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-            <button class="btn my-2 my-sm-0" style="margin-right: 20px;" id="search" type="submit"><i class="fa fa-search"></i> </button>
+            <input class="form-control mr-sm-2" type="search" placeholder="Search by city" id="search-field" aria-label="Search">
+            <button class="btn my-2 my-sm-0" style="margin-right: 20px;" id="search"><i class="fa fa-search"></i> </button>
           </form>
-          <a class="logout my-2 my-sm-0" id='logout'>Logout</a>
+          <% if (donor || ngo) { %> 
+            <a class="logout my-2 my-sm-0" href="/<%= donor?"donor":"ngo" %>/logout"> Logout</a>
+          <% } else { %>
+            <a class="logout my-2 my-sm-0" href="/"> Login</a>
+          <% } %> 
         </div>
       </nav>
          <script>
-           const logout = document.getElementById('logout');
-           logout.addEventListener('click', async(e)=>{
-             const res = await fetch('/donors/logout', {
-                    method:'POST',
-                    headers:{
-                        'Content-Type':'application/json'
-                    }
-             })
-           }).then(()=>{
-             location.assign('/')
-           });
+           const search = document.getElementById('search');
+           const searchField = document.getElementById('search-field');
+           search.addEventListener('click', async (e)=>{
+             e.preventDefault();
+             
+             location.assign(`/events?city=${searchField.value}`)
+           })
+
            
          </script>
 </body>
