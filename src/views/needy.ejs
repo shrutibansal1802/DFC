@@ -13,7 +13,7 @@
   <script href="script/script.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-  
+
 </head>
 
 <body>
@@ -30,35 +30,35 @@
     </div>
   </div>
   <div class="your-Events">
-    
-    <h4>Your Events</h4>
-    
-    <div class="card-columns">
-      <% events.forEach(function(event){ %> 
-       <div class="card bg-primary">
-        
+
+    <h4 class="text-center">Your Events</h4>
+
+    <div class="cardColumns">
+      <% events.forEach(function(event){ %>
+      <div class="event-card">
+
         <div class="event-details">
-      
-      <h3 class="event-name"><%= event.name %></h3>
-          <p><%= event.description %></p>
-          <p><%= event.city %></p>
+
+          <h3 class="event-name"><%= event.name %></h3>
+          <p class="event-description"><%= event.description %></p>
+          <p class="event-city">City : <%= event.city %></p>
           <table class="event-req">
-              <tr>
-                  <th>requirement <%= event.volunteersRequired %></th>
-                  <th>remaining</th>
-              </tr>
-              <tr>
-                  <th>requirement 2</th>
-                  <th>completed</th>
-              </tr>
-              
+            <tr>
+              <th>requirement <%= event.volunteersRequired %></th>
+              <th>remaining</th>
+            </tr>
+            <tr>
+              <th>requirement 2</th>
+              <th>completed</th>
+            </tr>
+
           </table>
         </div>
       </div></a>
-      <% }); %> 
-      
+      <% }); %>
+
     </div>
-  
+
   </div>
 
   </div>
@@ -72,8 +72,8 @@
   </div>
 
   <!-- <footer> -->
-  
-<div id="footer"><%- include('footer.ejs') %> </div>
+
+  <div id="footer"><%- include('footer.ejs') %> </div>
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
