@@ -3,7 +3,7 @@ const auth = require('../middleware/authNgo');
 const Event = require('../models/event');
 const Ngo = require('../models/ngo');
 
-// GET create event
+// Render create event
 router.get('/newEvent', auth, (req, res)=>{
     res.render('newEvent', {
         ngo:req.ngo
@@ -49,7 +49,7 @@ router.get('/events', async(req, res)=>{
     }
 });
 
-//single events by query and all events
+// Render single events by query and all events
 router.get('/events/:id', async(req, res)=>{
     const _id = req.params.id;
 
@@ -87,6 +87,7 @@ router.get('/events/me', auth, async (req, res)=>{
     }
 })
 
+// Update event
 router.patch('/events/:id', auth, async (req, res)=>{
     const updates = Object.keys(req.body);
     const allowedUpdates = ['name', 'volunteersRequired','category', 'otherRequirements', 'city', 'address', 'description'];
@@ -114,6 +115,7 @@ router.patch('/events/:id', auth, async (req, res)=>{
     }
 });
 
+// Delete event
 router.delete('/events/:id', auth, async(req, res)=>{
     try {
         const event = await Event.findOne({ _id: req.params.id, owner: req.ngo._id });

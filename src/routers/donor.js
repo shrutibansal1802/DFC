@@ -3,9 +3,11 @@ const Donor = require('../models/donor');
 const auth = require('../middleware/authDonor');
 
 
-// signup page
+// Render signup page
 router.get('/sweetySignup', async(req, res)=>{
-    res.render('sweetySignup');
+    res.render('sweetySignup', {
+        ngo: null
+    });
 });
 
 // signup
@@ -21,11 +23,11 @@ router.post('/sweetySignup', async (req, res)=>{
     }
 });
 
-//Signin route
+// Render Signin route
 router.get('/', async(req, res)=>{
     res.render('index', {
         donor: req.donor,
-        ngo: req.ngo
+        ngo: null
     });
 });
 
@@ -60,7 +62,8 @@ router.get('/sweety', auth, async (req, res)=>{
     try {
         const donor = req.donor;
         res.render('sweety', {
-            donor
+            donor,
+            ngo: null
         });
     } catch (e) {
         res.status(400).send();

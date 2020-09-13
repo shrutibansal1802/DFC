@@ -3,7 +3,7 @@ const Ngo = require('../models/ngo');
 const Event = require('../models/event')
 const auth = require('../middleware/authNgo')
 
-// signup
+// Render signup
 router.get('/needySignup', async (req, res)=>{
     res.render('needySignup', {
         ngo: req.ngo,
@@ -25,11 +25,11 @@ router.post('/needySignup', async (req, res)=>{
     }
 });
 
-// Login Page
+// Render Login Page
 router.get('/needysignin', (req, res)=>{
     res.render('needysignin', {
         ngo: req.ngo,
-        donor: req.donor
+        donor: null
     })
 })
 
@@ -75,27 +75,27 @@ router.get('/ngos', async(req, res)=>{
             res.render('ngolist', {
                 ngos,
                 ngo: req.ngo,
-                donor: req.donor
+                donor: null
             })
         }
         const ngos = await Ngo.find({});
         res.render('ngolist', {
             ngos,
             ngo: req.ngo,
-            donor: req.donor
+            donor: null
         });
     } catch (e) {
         res.status(400).send()
     }
 });
 
-// Home Page
+// Render Home Page
 router.get('/needy', auth, async (req, res)=>{
     const events = await Event.find({owner: req.ngo._id})
     res.render('needy', {
         ngo:req.ngo,
         events,
-        donor: req.donor
+        donor: null
     })
 })
 
