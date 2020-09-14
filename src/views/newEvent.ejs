@@ -21,17 +21,17 @@
                         </span>
 
                         <div class="wrap-input validate-input " >
-                            <input class="input" type="text" name="name" placeholder="Name of Event">
+                            <input class="input" type="text" name="name" placeholder="Name of Event*">
                             <span class="focus-input"></span>
                         </div>
 
                         <div class="wrap-input validate-input " data-validate="Enter username or email">
-                            <input class="input" type="text" value="<%= ngo.ngoname %>" placeholder="Name of the organization">
+                            <input class="input" type="text" value="<%= ngo.ngoname %>" placeholder="Name of the organization*">
                             <span class="focus-input"></span>
                         </div>
 
                         <div class="wrap-input validate-input " data-validate="Enter username or email">
-                            <input class="input" type="text" name="description" placeholder="Description of Event">
+                            <input class="input" type="text" name="description" placeholder="Description of Event*">
                             <span class="focus-input"></span>
                         </div>
 
@@ -63,7 +63,7 @@
                             <span class="focus-input"></span>
                         </div>
                         <div class="wrap-input validate-input " data-validate="Enter password">
-                            <input class="input" type="text" name="city" placeholder="Locality">
+                            <input class="input" type="text" name="city" placeholder="Locality*">
                             <span class="focus-input"></span>
                         </div>
 
@@ -72,6 +72,9 @@
                             <span class="focus-input"></span>
                         </div>
 
+                        <div class="formAlert"> 
+                            * = Required
+                        </div>
                         <div class="container-login-form-btn">
                             <button class="login-form-btn" type="submit">
                                 Create Event

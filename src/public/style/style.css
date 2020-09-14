@@ -167,3 +167,9 @@ input{
 .about> h5{
     color:rgb(117, 115, 115);
 }
+.formAlert{
+    color: red;
+    font-size: 13px;
+    line-height: 15px;
+    font-family: sans-serif;
+}

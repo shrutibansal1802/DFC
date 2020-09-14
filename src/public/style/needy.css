@@ -18,11 +18,7 @@
     width: 100%;
     height: auto;
 }
-.carousel-inner img {
-    width: 100%;
-    height: 70vh;
-    
-  }
+
 .new-event>h3{
     text-align: center;
 }
@@ -38,7 +34,7 @@
    border: none;
    padding: 20px 40px;
    background: var(--secbg);
-   color: white;
+   color: white !important;
 }
 .welcome-text> h2{
     text-align: center;
@@ -51,7 +47,7 @@
     margin: auto;
 }
 .event-card{
-    width: 30%;
+    width: 90%;
     margin:  15px auto;
     overflow: hidden;
     padding:10px 15px;
@@ -86,16 +82,5 @@
     font-weight: 100;
 }
 
-@media screen and (max-width:400px)
-{
-    .event-card{
-        width: 100%;
-    }
-}
-@media screen and ( min-width:401px) and (max-width:1100px)
-{
-    .event-card{
-        width: 49%;
-    }
-}
+
 /* card */
