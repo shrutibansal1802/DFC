@@ -38,8 +38,8 @@
 
 <div class="container"> 
     <div class="text-center"> 
-        <button type="button" class="btn btn-primary">Prev</button>
-        <button type="button" class="btn btn-primary">Next</button>
+        <button type="button" id="nextbtn" class="btn btn-primary">Prev</button>
+        <button type="button" id="nextbtn" class="btn btn-primary">Next</button>
     </div>
     </div>
 </div>
@@ -51,5 +51,9 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+     const nextbtn =Array.from(document.querySelectorAll("#nextbtn"));
+     nextbtn.forEach(btn=>btn.disabled=true)
+  </script>
 </body>
 </html>
