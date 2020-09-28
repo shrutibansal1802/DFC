@@ -5,9 +5,12 @@ html, body{
     margin: 0%;
     box-sizing: border-box;
     overflow-x:hidden;
-
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
 }
 #footer {
+   margin-top: auto;
     background: var(--bgcolor) !important;
 }
 #footer h5{
