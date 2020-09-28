@@ -21,6 +21,9 @@
 
 
 <ul>
+  <% if (ngos.length===0) { %> 
+    <div>No NGOS in your area</div>
+  <% } else { %> 
   <% ngos.forEach(function(ngo){ %> 
     <div class="card" >
         <h5 class="card-header"><%= ngo.ngoname %> </h5>
@@ -33,7 +36,7 @@
         </div>
       </div>
       <hr>
-      <% }) %> 
+      <% })} %> 
 </ul>
 
 <div class="container"> 
