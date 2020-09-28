@@ -11,7 +11,7 @@ const donorRouter = require('./routers/donor');
 const ngoRouter = require('./routers/ngo');
 const eventRouter = require('./routers/event');
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 5000;
 
 const publicDirectoryPath = path.join(__dirname, "./public");
 const viewsPath = path.join(__dirname, "../client/templates/views");
