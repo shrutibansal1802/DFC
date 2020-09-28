@@ -1,58 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <title>Document</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style/sweety.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="script" href="script/script.js">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
- 
-    
+  <title>Document</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style/sweety.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="script" href="script/script.js">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+
 </head>
+
 <body>
 
   <div id="header"><%- include('header.ejs') %> </div>
 
-<div class="jumbotron">
+  <div class="jumbotron">
 
 
-<ul>
-  <% if (ngos.length===0) { %> 
-    <div>No NGOS in your area</div>
-  <% } else { %> 
-  <% ngos.forEach(function(ngo){ %> 
-    <div class="card" >
+    <ul>
+      <% if (ngos.length===0) { %>
+      <div class="empty-cont">No NGO'S in your area</div>
+      <% } else { %>
+      <% ngos.forEach(function(ngo){ %>
+      <div class="card">
         <h5 class="card-header"><%= ngo.ngoname %> </h5>
         <div class="card-body">
           <h6 class="card-title"><%= ngo.city %> </h6>
-          <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt molestiae non quos animi facilis impedit voluptate distinctio nobis consectetur nam dolorum necessitatibus voluptates illo iure dicta nisi neque, perferendis unde?
+          <p class="card-text">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Sunt molestiae non quos animi
+            facilis impedit voluptate distinctio nobis consectetur nam dolorum necessitatibus voluptates illo iure dicta
+            nisi neque, perferendis unde?
 
           </p>
           <a href="#" class="btn btn-primary">Like</a>
         </div>
       </div>
       <hr>
-      <% })} %> 
-</ul>
+      <% }) %>
+    </ul>
 
-<div class="container"> 
-    <div class="text-center"> 
+    <div class="container">
+      <div class="text-center">
         <button type="button" class="btn btn-primary">Prev</button>
         <button type="button" class="btn btn-primary">Next</button>
+      </div>
     </div>
-    </div>
-</div>
+    <% } %>
+  </div>
 
 
-<div id="footer"><%- include('footer.ejs') %> </div>
+  <div id="footer"><%- include('footer.ejs') %> </div>
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
