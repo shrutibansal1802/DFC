@@ -81,6 +81,20 @@
     font-size: medium;
     font-weight: 100;
 }
+.del-btn{
+    position: absolute;
+    right: 8px;
+    bottom: 20px;
+  
+    border: 0px;
+}
+.del-btn>button{
+    color: white;
+    background-color: rgb(255, 249, 255);
+    border: 0px;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
 
 
 /* card */

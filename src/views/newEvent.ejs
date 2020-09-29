@@ -8,7 +8,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <link rel="stylesheet" href="style/style.css">
-    <link rel="script" href="script/script.js">
+    <link rel="script" href="/src/public/script/script.js">
+
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
     
 </head>
 <body>
@@ -27,6 +30,20 @@
 
                         <div class="wrap-input validate-input " data-validate="Enter username or email">
                             <input class="input" type="text" value="<%= ngo.ngoname %>" placeholder="Name of the organization*">
+                            <span class="focus-input"></span>
+                        </div>
+
+                        <div class="wrap-input validate-input " data-validate="Enter username or email">
+                            <input class="input" type="date" name="description" placeholder="Date of Event*">
+
+
+                            <span class="focus-input"></span>
+                        </div>
+
+                        <div class="wrap-input validate-input " data-validate="Enter username or email">
+                            <input class="input" type="time" name="description" placeholder="time of Event*">
+
+
                             <span class="focus-input"></span>
                         </div>
 
