@@ -1,83 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <title>Donor for Local</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/style/sweety.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" href="../public/style/sweety.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+        integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="script" href="/script/script.js">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
- 
- 
+
+
 </head>
+
 <body>
+<header>
+    <div id="header"><%- include('header.ejs') %> </div>
+</header>
 
-  <div id="header"><%- include('header.ejs') %> </div>
 
+    <div class="jumbotron">
 
+        <img src="/images/Akshaypatra.jpg" class="img-fluid" alt="Responsive image">
 
-<div class="jumbotron">
+        <h1><%= event.name %></h1>
+        <h2><%= event.owner.ngoname %></h2>
+        <p><%= event.description %></p>
+        <h6>Venue: <%= event.city %></h6>
+        <h6>time: 8 am</h6>
+        <h6>date: <%= %></h6>
 
-      <img src="/images/Akshaypatra.jpg" class="img-fluid" alt="Responsive image">
+        <hr>
 
-      <h1><%= event.name %></h1>
-      <h2><%= event.owner.ngoname %></h2>
-      <p><%= event.description %></p>
-      <h6>Venue: <%= event.city %></h6>
-      <h6>time: 8 am</h6>
-
-      <hr>
-      
-      <div class="row">
-        <div class="col-md-12 text-left">
-            <h1>View NGO profile</h1>
-        <button type="button" class="btn btn-primary">NGO page</button>
-        </div>
-        </div>
-        <hr/>
-      
         <div class="row">
-        <div class="col-md-12 text-left">
-            <h1>Want to become volunteer</h1>
-        <button type="button" class="btn btn-primary">Yes</button>
-        <button type="button" class="btn btn-warning">Not now</button>
+            <div class="col-md-12 text-left">
+                <h1>View NGO profile</h1>
+                <button type="button" class="btn btn-primary">NGO page</button>
+            </div>
         </div>
+        <hr />
+
+        <div class="row">
+            <div class="col-md-12 text-left">
+                <h1>Want to become volunteer</h1>
+                <button type="button" class="btn btn-primary">Yes</button>
+                <button type="button" class="btn btn-warning">Not now</button>
+            </div>
         </div>
-        
+
         <hr>
 
         <div class="row">
             <div class="col-md-12 text-left">
                 <h1>Want to Donate</h1>
-            <button type="button" class="btn btn-primary">Yes</button>
-            <button type="button" class="btn btn-warning">Not now</button>
-            </div>
-            </div>
-            
-            <hr>
-
-            <div class="row">
-                <div class="col-md-12 text-left">
-                    <h1>Want to Supply needs</h1>
                 <button type="button" class="btn btn-primary">Yes</button>
                 <button type="button" class="btn btn-warning">Not now</button>
-                </div>
-                </div>
-                
-                
+            </div>
+        </div>
 
-</div>
+        <hr>
+
+        <div class="row">
+            <div class="col-md-12 text-left">
+                <h1>Want to Supply needs</h1>
+                <button type="button" class="btn btn-primary">Yes</button>
+                <button type="button" class="btn btn-warning">Not now</button>
+            </div>
+        </div>
 
 
 
-<div id="footer"><%- include('footer.ejs') %> </div>
+    </div>
 
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <div id="footer"><%- include('footer.ejs') %> </div>
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>
