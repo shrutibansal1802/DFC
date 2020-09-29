@@ -53,7 +53,7 @@ router.get('/donor/logout', auth, async(req, res)=>{
         res.cookie('jwt', '', { maxAge:1 })
         res.redirect('/');
     } catch (e) {
-        res.status(400).send();
+        res.status(400).render('404');
     }
 })
 
@@ -66,7 +66,7 @@ router.get('/sweety', auth, async (req, res)=>{
             ngo: null
         });
     } catch (e) {
-        res.status(400).send();
+        res.status(400).render('404');
     }
 });
 

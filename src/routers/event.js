@@ -1,17 +1,19 @@
 const router = require('express').Router();
-const auth = require('../middleware/authNgo');
+const authNgo = require('../middleware/authNgo');
+const authDonor = require('../middleware/authdonor');
 const Event = require('../models/event');
 const Ngo = require('../models/ngo');
+const moment = require('moment')
 
 // Render create event
-router.get('/newEvent', auth, (req, res)=>{
+router.get('/newEvent', authNgo, (req, res)=>{
     res.render('newEvent', {
         ngo:req.ngo
     })
 })
 
 // Create an event
-router.post('/events', auth, async (req, res)=>{
+router.post('/events', authNgo, async (req, res)=>{
     const event = new Event({
         ...req.body,
         owner: req.ngo._id
@@ -30,22 +32,56 @@ router.get('/events', async(req, res)=>{
     const city = req.query.city;
 
     try {
-        if(city){
-            const eventsbycity = await Event.find({ city: city });
+        if(!req.cookies.jwt && !req.cookies.jwt1){
+            if(city){
+                const eventsbycity = await Event.find({ city: city });
+                res.render('citywise', {
+                    events: eventsbycity,
+                    donor: null,
+                    ngo: null
+                })
+            }
+            const events = await Event.find({});
             res.render('citywise', {
-                events: eventsbycity,
-                donor:req.donor,
-                ngo: req.ngo
-            })
+                events,
+                donor: null,
+                ngo: null
+            });
+        } else {
+            if(req.cookies.jwt){
+                if(city){
+                    const eventsbycity = await Event.find({ city: city });
+                    res.render('citywise', {
+                        events: eventsbycity,
+                        donor:"req.donor",
+                        ngo: null
+                    })
+                }
+                const events = await Event.find({});
+                res.render('citywise', {
+                    events,
+                    donor:"req.donor",
+                    ngo: null
+            });
+            } else {
+                if(city){
+                    const eventsbycity = await Event.find({ city: city });
+                    res.render('citywise', {
+                        events: eventsbycity,
+                        donor:null,
+                        ngo: "req.ngo"
+                    })
+                }
+                const events = await Event.find({});
+                res.render('citywise', {
+                    events,
+                    donor:null,
+                    ngo: "req.ngo"
+            });
+            }
         }
-        const events = await Event.find({});
-        res.render('citywise', {
-            events,
-            donor:req.donor,
-            ngo: req.ngo
-        });
     } catch (e) {
-        res.status(400).send(e)
+        res.status(400).render('404')
     }
 });
 
@@ -57,21 +93,22 @@ router.get('/sweetytoneedie/:id', async(req, res)=>{
         const event = await Event.findById(_id);
         await event.populate('owner').execPopulate()
         if(!event){
-            return res.status(404).send()
+            return res.status(404).render('404')
         }
         
         res.render('sweetytoneedie', {
             ngo: null, 
             donor: null,
             event,
+            moment
         });
     } catch (e) {
-        res.status(400).send()
+        res.status(400).send(e)
     }
 });
 
 // Ngo personalised events
-router.get('/events/me', auth, async (req, res)=>{
+router.get('/events/me', authNgo, async (req, res)=>{
     const sort= {};
     if(req.query.sortBy) {
         const parts = req.query.sortBy.split('_');
@@ -89,12 +126,12 @@ router.get('/events/me', auth, async (req, res)=>{
         }).execPopulate();
         res.send(req.ngo.events)
     } catch (e) {
-        res.status(400).send()
+        res.status(400).render('404')
     }
 })
 
 // Update event
-router.patch('/events/:id', auth, async (req, res)=>{
+router.patch('/events/:id', authNgo, async (req, res)=>{
     const updates = Object.keys(req.body);
     const allowedUpdates = ['name', 'volunteersRequired','category', 'otherRequirements', 'city', 'address', 'description'];
     const isValidUpdate = updates.every(update=>{
@@ -122,7 +159,7 @@ router.patch('/events/:id', auth, async (req, res)=>{
 });
 
 // Delete event
-router.delete('/events/:id', auth, async(req, res)=>{
+router.delete('/events/:id', authNgo, async(req, res)=>{
     try {
         const event = await Event.findOne({ _id: req.params.id, owner: req.ngo._id });
 

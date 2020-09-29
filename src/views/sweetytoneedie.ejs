@@ -28,13 +28,14 @@
       <p><%= event.description %></p>
       <h6>Venue: <%= event.city %></h6>
       <h6>time: 8 am</h6>
+      <h6><%= moment(event.createdAt).format('MMMM Do YYYY') %></h6>
 
       <hr>
       
       <div class="row">
         <div class="col-md-12 text-left">
             <h1>View NGO profile</h1>
-        <button type="button" class="btn btn-primary">NGO page</button>
+        <button type="button" class="btn btn-dark"><a href="/ngos/<%= event.owner._id %>"> NGO page</a></button>
         </div>
         </div>
         <hr/>

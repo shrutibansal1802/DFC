@@ -89,6 +89,26 @@ router.get('/ngos', async(req, res)=>{
     }
 });
 
+// GEt Ngo by ID
+router.get('/ngos/:id', async (req, res)=>{
+    const _id = req.params.id;
+
+    try {
+        const ngo = await Ngo.findById({_id});
+
+        if(!ngo){
+            return res.status(404).render('404')
+        }
+        res.render('ngopage', {
+            ngo, 
+            donor: "null",
+        });
+
+    } catch (err) {
+        
+    }
+})
+
 // Render Home Page
 router.get('/needy', auth, async (req, res)=>{
     const events = await Event.find({owner: req.ngo._id})

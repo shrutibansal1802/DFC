@@ -5,27 +5,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/src/public/style/ngopage.css">
+    <link rel="stylesheet" href="/style/ngopage.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="script" href="script/script.js">
+    <link rel="script" href="/script/script.js">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
  
 
-      <script>
-
-        $(function () {
-            $("#header").load("header.html");
-            $("#footer").load("footer.html");
-        })
-    </script>
     
 </head>
 <body>
 
-    <div id="header"></div>
+    <div id="header"><%- include('header.ejs') %></div>
 
 
 
@@ -35,20 +28,16 @@
                     <div class="row">
                         <div class="col-md-4">
                             <div class="profile-img">
-                                <img src="./images/Akshaypatra.jpg" alt=""/>
-                                <div class="file btn btn-lg btn-primary">
-                                    Change Photo
-                                    <input type="file" name="file"/>
-                                </div>
+                                <img src="/images/Akshaypatra.jpg" alt=""/>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="profile-head">
                                         <h5>
-                                           Akshaypatra
+                                           <%= ngo.ngoname %>
                                         </h5>
                                         <h6>
-                                            Mid-day meal serving NGO
+                                            <%= ngo.description%>
                                         </h6>
                                         
 
@@ -61,22 +50,21 @@
                                         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">About</a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Story</a>
+                                        <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Description</a>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-md-2">
-                            <input type="submit" class="profile-edit-btn" name="btnAddMore" value="Edit Profile"/>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-4">
                             <div class="profile-work">
                                 <p>WORK LINK</p>
-                                <a href="">Website Link</a><br/>
-                                <a href="">facebook Profile</a><br/>
-                                <a href="">instagram Profile</a>
+                                <a href="#">Website Link</a><br/>
+                                <a href="#">facebook Profile</a><br/>
+                                <a href="#">instagram Profile</a>
                                 
 
 
@@ -92,7 +80,7 @@
                                                     <label>NGO type</label>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <p>Food serving</p>
+                                                    <p><%= ngo.category %></p>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -128,7 +116,7 @@
                                                     <label>Email</label>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <p>Akshaypatra@gmail.com</p>
+                                                    <p><%= ngo.email %></p>
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -136,7 +124,7 @@
                                                     <label>Phone</label>
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <p>9672920043</p>
+                                                    <p><%= ngo.contact %></p>
                                                 </div>
                                             </div>
                                             
@@ -153,7 +141,6 @@
             </div>
     
 
-<div id="footer"> </div>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
