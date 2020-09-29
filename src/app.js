@@ -28,6 +28,18 @@ app.use(cookieparser());
 app.use(donorRouter);
 app.use(ngoRouter);
 app.use(eventRouter);
+app.get('/help', (req, res)=>{
+    res.render('help', {
+        donor: null,
+        ngo:null
+    })
+});
+app.get('/contactus', (req, res)=>{
+    res.render('contactus', {
+        donor: null,
+        ngo:null
+    })
+});
 
 app.listen(PORT, ()=>{
     console.log(`Server is running on port ${PORT}`);

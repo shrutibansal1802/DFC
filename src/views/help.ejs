@@ -4,13 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <script>document.getElementsByTagName("html")[0].className += " js";</script>
-  <link rel="stylesheet" href="/src/public/style/help.css">
+  <link rel="stylesheet" href="/style/help.css">
   <title>FAQ Template | CodyHouse</title>
 </head>
 <body>
+    <div id="header"><%- include('header.ejs') %> </div>
+
 <header class="cd-header flex flex-column flex-center">
   <div class="text-component text-center">
-    <h1>How can we help you</h1>
+    <h1>How can we help you ?</h1>
     
   </div>
 </header>
@@ -276,6 +278,8 @@
   
   <div class="cd-faq__overlay" aria-hidden="true"></div>
 </section> <!-- cd-faq -->
+    <div id="footer"><%- include('footer.ejs') %> </div>
+
 <script src="/src/public/script/util.js"></script> <!-- util functions included in the CodyHouse framework -->
 <script src="/src/public/script/script.js"></script> 
 </body>
