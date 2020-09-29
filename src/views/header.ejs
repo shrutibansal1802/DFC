@@ -47,6 +47,9 @@
           <% if (donor || ngo) { %> 
             <a class="logout my-2 my-sm-0" href="/<%= donor?"donor":"ngo" %>/logout"> Logout</a>
           <% } %> 
+          <% if (!donor && !ngo) { %> 
+            <a class="logout my-2 my-sm-0" href="/"> login</a>
+          <% } %> 
         </div>
       </nav>
          <script>

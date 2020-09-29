@@ -50,15 +50,21 @@ router.get('/events', async(req, res)=>{
 });
 
 // Render single events by query and all events
-router.get('/events/:id', async(req, res)=>{
+router.get('/sweetytoneedie/:id', async(req, res)=>{
     const _id = req.params.id;
 
     try {
         const event = await Event.findById(_id);
+        await event.populate('owner').execPopulate()
         if(!event){
             return res.status(404).send()
         }
-        res.send(event);
+        
+        res.render('sweetytoneedie', {
+            ngo: null, 
+            donor: null,
+            event,
+        });
     } catch (e) {
         res.status(400).send()
     }
