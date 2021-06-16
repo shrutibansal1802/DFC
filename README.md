@@ -11,7 +11,8 @@
 Donor for local is a web app that aims to help people who are willing to donate or even offer volunteering services in the good deeds by their local NGO's or public welfare organisations. People can rely on the website for credibility of the organizations and NGO's in which they are going to offer help.
 
 The application will bridge the gap between the donors and the organizations that need help. 
-https://docs.google.com/presentation/d/13QYa-kt1soCIzT20R7Sl_k2VwfVfQTtd6EQz_omskaQ/edit?usp=sharing
+https://docs.google.com/presentation/d/1wck_XmEFEyouV3CAxOcRLTAX_McQR3VdN4NUJN4qS_Y/edit?usp=sharing
+
 
 ### Tech Stack :star:
 
